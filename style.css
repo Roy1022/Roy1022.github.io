@@ -1,0 +1,24 @@
+html {
+  height: 100%;
+  width: 100%;
+  background-color: #ade3e6;
+  color: #0d5173;
+  text-align: center;
+}
+h1{
+  margin: 6%;
+  text-align: center;
+  font-size: 50px;
+}
+img{
+  margin: auto;
+  display: block;
+  border-radius: 10px;
+  height: 400px;
+  width: 60%;
+}
+#about{
+    display: flex;
+    flex-direction: 
+    justify-content: center;
+}
