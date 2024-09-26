@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started With Apps</title>
+    <style>
+        /* General Styles for index2.html */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* Light text color */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #eb4d4d; /* Blue-green color */
+        }
+
+        .header a {
+            color: #ffffff;
+            font-size: 1.5em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .header a:hover {
+            color: #eb4d4d; /* Blue-green color */
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #eb4d4d; /* Blue-green color */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        .video-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .video-section video {
+            max-width: 75%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .go-back {
+            display: block;
+            text-align: center;
+            color: #eb4d4d;/* Blue-green color */
+            font-size: 1.2em;
+            text-decoration: none;
+            margin-top: 30px;
+            border: 2px solid #eb4d4d;/* Blue-green color */
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .go-back:hover {
+            background-color: #eb4d4d;/* Blue-green color */
+            color: #ffffff;
+        }
+
+        .summary {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+        }
+
+        .summary h2 {
+            color: #eb4d4d;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .summary p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .summary ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .summary ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section class="header">
+            <a href="#">Get Started With Apps</a>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Additional Work</h2>
+            <div class="gallery">
+                <!-- Example gallery items with cool images -->
+                <div class="gallery-item">
+                    <img src="learn3pic2.png" alt="Work Example 1">
+                    <div class="gallery-caption">Picture 1</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="learn3pic3.png" alt="Work Example 2">
+                    <div class="gallery-caption">Picture 2</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="learn3pic4.png" alt="Work Example 3">
+                    <div class="gallery-caption">Picture 3</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <h2 class="section-title">Video</h2>
+            <video controls>
+                <source src="learn3vid1.mov" type="video/mp4">
+            </video>
+        </section>
+
+        <section class="summary">
+            <h2>Understanding Swift and UI Layouts</h2>
+        
+            <p>Swift is an innovative and intuitive programming language developed by Apple for building robust applications across iOS, macOS, watchOS, and tvOS platforms. Its modern syntax and powerful features empower developers to write cleaner, safer, and more efficient code. Swift is designed to facilitate seamless integration with various APIs and frameworks, making it a preferred choice for developers aiming to create better stuff.</p>
+        
+            <h2>Key Learning Areas</h2>
+            <ul>
+                <li><strong>Swift Basics:</strong> Familiarize yourself with essential programming concepts such as variables, data types, control flow (if statements, loops), and error handling mechanisms. This foundation is crucial for building functional applications.</li>
+                <li><strong>SwiftUI Framework:</strong> Learn the structure and design principles of SwiftUI, focusing on its declarative syntax that allows developers to define user interfaces more intuitively.</li>
+                <li><strong>HStack and VStack:</strong> Master these layout components for creating responsive and adaptable user interfaces. Understanding how to effectively use HStack for horizontal arrangements and VStack for vertical stacking is essential for modern app design.</li>
+            </ul>
+        
+            <h2>HStack and VStack</h2>
+            <p>The <strong>HStack</strong> arranges views horizontally, making it perfect for layouts that require elements to be side-by-side, such as buttons or images. Conversely, the <strong>VStack</strong> stacks views vertically, ideal for creating lists or forms. Mastering these layouts not only enhances the aesthetic appeal of your applications but also improves usability by providing a well-organized and intuitive user experience.</p>
+        
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Keep your views modular and reusable to simplify your codebase. This approach aids in maintaining and updating your application over time.</li>
+                <li>Utilize modifiers effectively to style and animate your views. SwiftUI provides numerous modifiers that allow for quick visual enhancements, improving the overall user experience.</li>
+                <li>Test your layouts on various device sizes and orientations to ensure responsiveness. Use Xcode's preview feature to assess how your designs adapt across different devices.</li>
+                <li>Focus on application control flow to manage user interactions efficiently, ensuring a smooth and engaging experience within your app.</li>
+            </ul>
+        
+            <h2>Conclusion</h2>
+            <p>By mastering Swift and its UI components like HStack and VStack, you’ll not only enhance your app development skills but also create engaging and user-friendly interfaces. Continuous practice, combined with exploring advanced features of Swift and effective application control techniques, will significantly elevate your programming journey.</p>
+        </section>
+        
+        
+
+        <a href="index.html" class="go-back">Go Back to Home</a>
+    </main>
+</body>
+</html>

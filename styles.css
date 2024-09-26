@@ -358,3 +358,9 @@ body {
   height: 15vh;
   width: 15px;
 }
+#projects3{
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  justify-content: space-between;
+}
