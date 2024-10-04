@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Creator</title>
+    <style>
+        /* General Styles for index2.html */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* Light text color */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #e8e47e; /* Blue-green color */
+        }
+
+        .header a {
+            color: #ffffff;
+            font-size: 1.5em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .header a:hover {
+            color: #e8e47e; /* Blue-green color */
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #e8e47e;; /* Blue-green color */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        .video-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .video-section video {
+            max-width: 75%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .go-back {
+            display: block;
+            text-align: center;
+            color: #e8e47e;/* Blue-green color */
+            font-size: 1.2em;
+            text-decoration: none;
+            margin-top: 30px;
+            border: 2px solid #e8e47e;/* Blue-green color */
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .go-back:hover {
+            background-color: #e8e47e;/* Blue-green color */
+            color: #ffffff;
+        }
+
+        .summary {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+        }
+
+        .summary h2 {
+            color: #e8e47e;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .summary p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .summary ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .summary ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section class="header">
+            <a href="#">Get Started With Apps</a>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Additional Work</h2>
+            <div class="gallery">
+                <!-- Example gallery items with cool images -->
+                <div class="gallery-item">
+                    <img src="Panda2.png" alt="Work Example 1">
+                    <div class="gallery-caption">Picture 1</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Panda3.png" alt="Work Example 2">
+                    <div class="gallery-caption">Picture 2</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="Panda4.png" alt="Work Example 3">
+                    <div class="gallery-caption">Picture 3</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <h2 class="section-title">Video</h2>
+            <video controls>
+                <source src="Panda6.mov" type="video/mp4">
+            </video>
+        </section>
+
+        <section class="summary">
+            <h2>Exploring Swift and User Interface Design</h2>
+        
+            <p>Swift is a powerful and user-friendly programming language crafted by Apple for developing dynamic applications across its platforms, including iOS, macOS, watchOS, and tvOS. Its contemporary syntax and robust capabilities empower developers to write cleaner, safer, and more efficient code. Swift seamlessly integrates with a variety of APIs and frameworks, making it an excellent choice for developers looking to innovate.</p>
+        
+            <h2>Core Learning Topics</h2>
+            <ul>
+                <li><strong>Fundamentals of Swift:</strong> Begin by understanding key programming concepts such as variables, data types, control structures (like if statements and loops), and error handling. This foundational knowledge is vital for creating effective applications.</li>
+                <li><strong>Debugging Techniques:</strong> Learn essential debugging strategies, such as using breakpoints, print statements, and Xcode's debugging tools to identify and fix errors efficiently.</li>
+                <li><strong>Code Structuring:</strong> Familiarize yourself with best practices for structuring your code. Focus on modularity, readability, and adherence to Swift conventions to create maintainable codebases.</li>
+            </ul>
+        
+            <h2>Debugging in Swift</h2>
+            <p>Effective debugging is crucial for developing robust applications. Familiarize yourself with Xcode's debugging tools, which allow you to set breakpoints, inspect variable values, and step through your code. Understanding common bugs and their fixes will enhance your problem-solving skills and lead to smoother app functionality.</p>
+        
+            <h2>Recommended Practices</h2>
+            <ul>
+                <li>Write modular and reusable code to simplify maintenance and reduce redundancy. This approach makes it easier to identify and fix bugs in specific components.</li>
+                <li>Utilize version control systems like Git to track changes in your codebase, making it simpler to revert to previous versions when bugs arise.</li>
+                <li>Conduct regular code reviews with peers to catch potential issues early and improve overall code quality.</li>
+                <li>Focus on error handling and user feedback to enhance application reliability, ensuring users have a seamless experience even when things go wrong.</li>
+            </ul>
+        
+            <h2>Final Thoughts</h2>
+            <p>By mastering Swift and implementing effective debugging and coding practices, you will significantly improve your app development skills. Consistent practice, along with a focus on problem-solving and code quality, will greatly enhance your programming journey.</p>
+        </section>
+        
+        
+        
+        
+
+        <a href="index.html" class="go-back">Go Back to Home</a>
+    </main>
+</body>
+</html>
