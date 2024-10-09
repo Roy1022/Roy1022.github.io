@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Creator</title>
+    <style>
+        /* General Styles for index2.html */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* Light text color */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #b07bdc; /* Blue-green color */
+        }
+
+        .header a {
+            color: #ffffff;
+            font-size: 1.5em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .header a:hover {
+            color: #b07bdc;; /* Blue-green color */
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #b07bdc; /* Blue-green color */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        .video-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .video-section video {
+            max-width: 75%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .go-back {
+            display: block;
+            text-align: center;
+            color: #b07bdc;/* Blue-green color */
+            font-size: 1.2em;
+            text-decoration: none;
+            margin-top: 30px;
+            border: 2px solid #b07bdc;/* Blue-green color */
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .go-back:hover {
+            background-color: #b07bdc;/* Blue-green color */
+            color: #ffffff;
+        }
+
+        .summary {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+        }
+
+        .summary h2 {
+            color: #b07bdc;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .summary p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .summary ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .summary ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section class="header">
+            <a href="#">Rock Paper Scissors</a>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Additional Work</h2>
+            <div class="gallery">
+                <!-- Example gallery items with cool images -->
+                <div class="gallery-item">
+                    <img src="rock4.png" alt="Work Example 1">
+                    <div class="gallery-caption">Picture 1</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="rock3.png" alt="Work Example 2">
+                    <div class="gallery-caption">Picture 2</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="rock2.png" alt="Work Example 3">
+                    <div class="gallery-caption">Picture 3</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <h2 class="section-title">Video</h2>
+            <video controls>
+                <source src="rock.mov" type="video/mp4">
+            </video>
+        </section>
+
+        <section class="summary">
+            <h2>Creating a Rock Paper Scissors App</h2>
+        
+            <p>Building a Rock Paper Scissors app is a fun way to learn the fundamentals of app development. This classic game is simple yet engaging, making it an ideal project for beginners. By utilizing Swift, developers can create a seamless user experience while practicing key programming concepts.</p>
+        
+            <h2>Key Learning Areas</h2>
+            <ul>
+                <li><strong>Swift Fundamentals:</strong> Start by understanding essential programming principles, including variables, functions, and control flow. This knowledge is vital for developing a functional game.</li>
+                <li><strong>SwiftUI for User Interface:</strong> Get acquainted with SwiftUI’s declarative syntax to design an intuitive interface that makes the game visually appealing.</li>
+                <li><strong>State Management:</strong> Learn how to manage game state effectively to keep track of player choices and scores, ensuring a smooth gameplay experience.</li>
+            </ul>
+        
+            <h2>Game Logic Implementation</h2>
+            <p>The core of the Rock Paper Scissors game lies in its logic. Players choose one of three options: Rock, Paper, or Scissors. Using conditional statements, you can determine the winner based on the choices made. This logic not only makes the game functional but also enhances the player’s engagement.</p>
+        
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Design a clean and intuitive user interface to enhance player interaction. Ensure buttons are easily accessible and visually distinct.</li>
+                <li>Keep your code modular by breaking down functionalities into separate functions or views. This helps in managing the codebase more efficiently.</li>
+                <li>Incorporate animations and sound effects to make the game more dynamic and enjoyable. SwiftUI offers easy-to-use tools for creating these enhancements.</li>
+                <li>Test your app thoroughly on different devices to ensure consistent performance and responsiveness, adapting to various screen sizes.</li>
+            </ul>
+        
+            <h2>Conclusion</h2>
+            <p>By developing a Rock Paper Scissors app, you’ll not only practice your Swift skills but also create an engaging user experience. Continuous experimentation and learning will elevate your understanding of app development, paving the way for more complex projects in the future.</p>
+        </section>
+        
+        
+        
+        
+        
+
+        <a href="index.html" class="go-back">Go Back to Home</a>
+    </main>
+</body>
+</html>

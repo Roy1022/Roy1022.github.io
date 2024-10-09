@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started With Apps</title>
+    <style>
+        /* General Styles for index2.html */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* Light text color */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #97e5ff;; /* Blue-green color */
+        }
+
+        .header a {
+            color: #ffffff;
+            font-size: 1.5em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .header a:hover {
+            color: #97e5ff;; /* Blue-green color */
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #97e5ff;; /* Blue-green color */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        .video-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .video-section video {
+            max-width: 75%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .go-back {
+            display: block;
+            text-align: center;
+            color: #97e5ff;;/* Blue-green color */
+            font-size: 1.2em;
+            text-decoration: none;
+            margin-top: 30px;
+            border: 2px solid #97e5ff;;/* Blue-green color */
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .go-back:hover {
+            background-color: #97e5ff;;/* Blue-green color */
+            color: #ffffff;
+        }
+
+        .summary {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+        }
+
+        .summary h2 {
+            color: #97e5ff;;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .summary p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .summary ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .summary ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section class="header">
+            <a href="#">Crystal App</a>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Additional Work</h2>
+            <div class="gallery">
+                <!-- Example gallery items with cool images -->
+                <div class="gallery-item">
+                    <img src="c5.png" alt="Work Example 1">
+                    <div class="gallery-caption">Picture 1</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="c4.png" alt="Work Example 2">
+                    <div class="gallery-caption">Picture 2</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="c3.png" alt="Work Example 3">
+                    <div class="gallery-caption">Picture 3</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <h2 class="section-title">Video</h2>
+            <video controls>
+                <source src="c2.mov" type="video/mp4">
+            </video>
+        </section>
+
+        <section class="summary">
+            <h2>Creating a Crystal App</h2>
+        
+            <p>Developing a Crystal app is an exciting project that allows you to explore the world of app development while tapping into the beauty and significance of crystals. This app can provide users with information on various crystals, their properties, and how to incorporate them into daily life, making it both educational and engaging.</p>
+        
+            <h2>Key Learning Areas</h2>
+            <ul>
+                <li><strong>Swift Basics:</strong> Begin by mastering essential programming concepts such as variables, data types, and control flow. This foundation is crucial for creating a functional and user-friendly app.</li>
+                <li><strong>SwiftUI for User Interface:</strong> Familiarize yourself with SwiftUI’s declarative syntax to design an attractive interface that showcases crystal information effectively.</li>
+                <li><strong>Data Management:</strong> Learn how to manage and display a collection of crystals using arrays and data structures, enabling users to browse and search through different options seamlessly.</li>
+            </ul>
+        
+            <h2>App Features Implementation</h2>
+            <p>The heart of the Crystal app lies in its features. Users should be able to explore a catalog of crystals, view detailed descriptions, and learn about their healing properties. Implementing search functionality and filters can enhance user experience by making it easy to find specific crystals based on characteristics.</p>
+        
+            <h2>Best Practices</h2>
+            <ul>
+                <li>Design an intuitive and visually appealing layout that highlights images and descriptions of crystals, enhancing user engagement.</li>
+                <li>Keep your code modular by separating different functionalities into distinct components, improving maintainability and readability.</li>
+                <li>Incorporate interactive elements such as quizzes or crystal recommendations based on user preferences to enrich the user experience.</li>
+                <li>Test your app on various devices to ensure consistent performance and responsiveness, making sure it adapts well to different screen sizes.</li>
+            </ul>
+        
+            <h2>Conclusion</h2>
+            <p>By creating a Crystal app, you’ll not only enhance your Swift skills but also provide users with valuable insights into the world of crystals. Continuous learning and creativity will elevate your app development journey, opening doors to future projects with greater complexity and functionality.</p>
+        </section>
+        
+        
+
+        <a href="index.html" class="go-back">Go Back to Home</a>
+    </main>
+</body>
+</html>
