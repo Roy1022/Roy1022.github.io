@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Clicker</title>
+    <style>
+        /* General Styles for index2.html */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* Light text color */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #97deab; /* Blue-green color */
+        }
+
+        .header a {
+            color: #ffffff;
+            font-size: 1.5em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .header a:hover {
+            color: #4deb7a;; /* Blue-green color */
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #4deb7a;; /* Blue-green color */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        .video-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .video-section video {
+            max-width: 75%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .go-back {
+            display: block;
+            text-align: center;
+            color: #4deb7a;;/* Blue-green color */
+            font-size: 1.2em;
+            text-decoration: none;
+            margin-top: 30px;
+            border: 2px solid #4deb7a;;/* Blue-green color */
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .go-back:hover {
+            background-color: #4deb7a;;/* Blue-green color */
+            color: #ffffff;
+        }
+
+        .summary {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+        }
+
+        .summary h2 {
+            color: #4deb7a;;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .summary p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .summary ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .summary ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <section class="header">
+            <a href="#">Cookie Clicker</a>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Additional Work</h2>
+            <div class="gallery">
+                <!-- Example gallery items with cool images -->
+                <div class="gallery-item">
+                    <img src="z4.png" alt="Work Example 1">
+                    <div class="gallery-caption">Picture 1</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="z3.png" alt="Work Example 2">
+                    <div class="gallery-caption">Picture 2</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="z2.png" alt="Work Example 3">
+                    <div class="gallery-caption">Picture 3</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <h2 class="section-title">Video</h2>
+            <video controls>
+                <source src="z1.mov" type="video/mp4">
+            </video>
+        </section>
+
+        <section class="summary">
+            <h2>Exploring the Challenges of Coding a Cookie Clicker Game</h2>
+        
+            <p>Developing a cookie clicker game presents a unique blend of creativity and technical challenges. This genre of game, while seemingly simple, requires a deep understanding of game mechanics, user interaction, and efficient coding practices. The goal is to create an engaging experience that keeps players coming back, which involves a variety of features and functionalities that can complicate the development process.</p>
+        
+            <h2>Key Areas of Focus</h2>
+            <ul>
+                <li><strong>Game Logic:</strong> Understanding the core mechanics is vital. This includes managing scores, tracking upgrades, and balancing in-game economics. Implementing features like "grandmas" that automatically generate cookies over time adds layers to the game logic. For instance, using <code>if</code> statements to check if a player has enough cookies to purchase a grandma ensures a balanced progression.</li>
+                <li><strong>UI Design:</strong> Crafting an intuitive user interface is essential. SwiftUI's declarative syntax helps streamline the layout process, but it requires careful planning to ensure that all elements are easily accessible and visually appealing. Components like buttons for purchasing upgrades need to be clearly labeled and visually distinct.</li>
+                <li><strong>Timers and Interactivity:</strong> Implementing timers for automatic score increments and interactive elements like clickable buttons adds layers of complexity. For example, using timers to manage how often cookies are generated by grandmas requires meticulous coding to handle state changes and ensure responsive feedback.</li>
+            </ul>
+        
+            <h2>Understanding Game Layouts</h2>
+            <p>Utilizing layout components effectively is crucial in game development. Using <strong>HStack</strong> for horizontal arrangements allows for side-by-side elements like buttons for purchasing upgrades, making it easy for players to make choices. Similarly, using <strong>VStack</strong> helps organize vertical information, such as current scores and upgrade instructions, ensuring a clean and user-friendly interface.</p>
+        
+            <h2>Implementing Game Features</h2>
+            <p>In addition to layout, incorporating features like golden cookies and incremental upgrades involves significant logic. For instance:</p>
+            <ul>
+                <li><strong>Conditional Logic:</strong> Using <code>if</code> statements can control gameplay mechanics. For example, you might check if the player has enough cookies to purchase a grandma and update the score accordingly:</li>
+                <pre><code>if score >= grandmaCost {
+            grandmas += 1
+            score -= grandmaCost
+        }</code></pre>
+                <li><strong>Golden Cookies:</strong> Introducing golden cookies that spawn at random intervals can add excitement. You might use a timer to manage when these appear and check conditions to reward the player upon collection:</li>
+                <pre><code>if goldenCookieVisible {
+            score += goldenCookieValue
+            hideGoldenCookie()
+        }</code></pre>
+                <li><strong>Upgrade Mechanics:</strong> Players should feel a sense of progression. Implementing upgrades that improve cookie generation rates or reduce costs can keep the gameplay engaging. Again, <code>if</code> statements can be used to validate conditions for upgrades:</li>
+                <pre><code>if score >= upgradeCost {
+            // Apply upgrade
+        }</code></pre>
+            </ul>
+        
+            <h2>Best Practices for Development</h2>
+            <ul>
+                <li>Break down your code into smaller, reusable components to keep the codebase manageable. This modularity simplifies debugging and allows for easier updates in the future.</li>
+                <li>Leverage SwiftUI modifiers to enhance the visual elements of your game. Animations and transitions can significantly improve user engagement, making the game feel more dynamic.</li>
+                <li>Thoroughly test the game on various devices to ensure a consistent experience. Use Xcode’s preview feature to visualize how different screen sizes affect your layout.</li>            </ul>
+        
+            <h2>Conclusion</h2>
+            <p>Coding a cookie clicker game is a rewarding yet challenging endeavor. By mastering the intricacies of Swift and effectively implementing game features, developers can create engaging, user-friendly games. Continuous practice and exploration of advanced features will not only enhance your coding skills but also enrich the overall gaming experience for players.</p>
+        </section>
+        
+        
+        
+        
+
+        <a href="index.html" class="go-back">Go Back to Home</a>
+    </main>
+</body>
+</html>
