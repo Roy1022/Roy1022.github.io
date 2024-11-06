@@ -3,9 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bicycle Purchase</title>
+    <style>
+        /* General Styles for index2.html */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #ffffff; /* Light text color */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background-color: #1e1e1e;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #cc7e84; /* Blue-green color */
+        }
+
+        .header a {
+            color: #ffffff;
+            font-size: 1.5em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .header a:hover {
+            color: #cc7e84; /* Blue-green color */
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #cc7e84; /* Blue-green color */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        .video-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .video-section video {
+            max-width: 75%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .go-back {
+            display: block;
+            text-align: center;
+            color: #cc7e84;/* Blue-green color */
+            font-size: 1.2em;
+            text-decoration: none;
+            margin-top: 30px;
+            border: 2px solid #cc7e84;/* Blue-green color */
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .go-back:hover {
+            background-color: #cc7e84;/* Blue-green color */
+            color: #ffffff;
+        }
+
+        .summary {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 10px;
+        }
+
+        .summary h2 {
+            color: #cc7e84;
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .summary p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .summary ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .summary ul li {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
-    
+    <main class="container">
+        <section class="header">
+            <a href="#">Bicycle Purchase</a>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Additional Work</h2>
+            <div class="gallery">
+                <!-- Example gallery items with cool images -->
+                <div class="gallery-item">
+                    <img src="po1.png" alt="Work Example 1">
+                    <div class="gallery-caption">Picture 1</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="po2.png" alt="Work Example 2">
+                    <div class="gallery-caption">Picture 2</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="po3.png" alt="Work Example 3">
+                    <div class="gallery-caption">Picture 3</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <h2 class="section-title">Video</h2>
+            <video controls>
+                <source src="p4.mov" type="video/mp4">
+            </video>
+        </section>
+
+        <section class="summary">
+            <h2>Exploring the Challenges of Coding a Bicycle Purchase App</h2>
+            
+            <p>Building a bicycle purchase app involves a unique set of technical challenges that blend e-commerce functionality with a user-friendly interface. While the concept may seem straightforward—enabling users to browse and purchase bicycles—creating a smooth and efficient experience requires attention to details like inventory management, secure payments, and intuitive navigation.</p>
+            
+            <h2>Key Areas of Focus</h2>
+            <ul>
+                <li><strong>Product Management:</strong> A core feature of any e-commerce app is managing a product catalog. For a bicycle purchase app, this includes displaying a range of bicycles, their specifications, prices, and availability. Implementing inventory tracking and filters (like brand, price range, or type of bicycle) helps users find what they’re looking for more easily. Managing and updating product data can be complex, but tools like databases or APIs streamline this process.</li>
+                <li><strong>UI/UX Design:</strong> Crafting an easy-to-navigate interface is crucial. With bicycle purchase apps, users need to quickly access product details, view prices, and make purchasing decisions. This requires clear layouts, such as grids or lists for products, along with filters and sorting options. Using frameworks like SwiftUI, designers can make the interface dynamic and visually appealing, ensuring buttons, images, and information are well-aligned and responsive.</li>
+                <li><strong>Payment and Checkout:</strong> Integrating a secure, seamless payment system is a fundamental part of any purchase app. The checkout process should be straightforward, with easy access to payment options, shipping information, and order summaries. Implementing proper error handling during this process—such as displaying alerts for failed payments—ensures a smooth transaction experience.</li>
+            </ul>
+            
+            <h2>Understanding Layouts and Components</h2>
+            <p>When developing a bicycle purchase app, structuring the layout efficiently is essential for a clean user experience. Using <strong>VStack</strong> for organizing vertical content (like product details, images, and price) and <strong>HStack</strong> for horizontal arrangements (such as the add-to-cart buttons or item specifications) ensures that elements are logically grouped and easy to access. Proper use of spacing and alignment in SwiftUI helps avoid clutter and allows for a visually pleasing interface, especially on smaller devices.</p>
+            
+            <h2>Implementing App Features</h2>
+            <p>In addition to layout considerations, several key features need to be implemented for the app to function effectively. These include product filtering, cart management, and secure payments. For example:</p>
+            <ul>
+                <li><strong>Product Filtering:</strong> Allowing users to filter products based on criteria such as type, price, or brand requires implementing dynamic logic to update the displayed products. This might involve using conditionals to show only products that meet the selected filter criteria:</li>
+                <pre><code>if selectedFilter == "mountain" {
+            filteredProducts = allProducts.filter { $0.type == "Mountain" }
+        }</code></pre>
+                <li><strong>Cart Management:</strong> A shopping cart feature allows users to add bicycles they are interested in purchasing. It’s important to handle this functionality with careful state management, updating the cart’s contents as items are added or removed. Using conditionals, you can check if a product is already in the cart and update the quantity accordingly:</li>
+                <pre><code>if cart.contains(product) {
+            cart.updateQuantity(for: product)
+        } else {
+            cart.addProduct(product)
+        }</code></pre>
+                <li><strong>Checkout and Payment:</strong> Secure checkout involves ensuring that the user’s payment information is processed correctly. Implementing logic to handle payment validation and providing feedback to users when an error occurs (like insufficient funds) is essential. Example code to validate payment might look like:</li>
+                <pre><code>if paymentSuccess {
+            // Proceed with order
+        } else {
+            // Show payment error message
+        }</code></pre>
+            </ul>
+            
+            <h2>Best Practices for Development</h2>
+            <ul>
+                <li>Structure the app’s codebase in a modular way by breaking down features into small, reusable components. This not only keeps the code organized but also allows for easy updates and maintenance as the app evolves.</li>
+                <li>Prioritize the security of payment and user data. Always use encryption for sensitive data (e.g., during payment transactions), and make sure that the app communicates securely with external APIs using HTTPS.</li>
+                <li>Test thoroughly across different devices and screen sizes. Use tools like Xcode’s preview mode to ensure that the app maintains a consistent, smooth experience on phones, tablets, and different screen orientations.</li>
+            </ul>
+            
+            <h2>Conclusion</h2>
+            <p>Building a bicycle purchase app offers a challenging yet rewarding experience. By focusing on product management, crafting a user-friendly interface, and implementing secure payment and checkout systems, developers can create an app that provides a seamless shopping experience. With continued practice and by following best practices for security, modularity, and testing, developers can ensure that the app remains functional and user-friendly, providing customers with an enjoyable bicycle shopping experience.</p>
+        </section>
+        
+        
+
+        <a href="index.html" class="go-back">Go Back to Home</a>
+    </main>
 </body>
 </html>
