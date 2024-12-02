@@ -283,4 +283,251 @@ GGIITT UURRLLSS
 
        a URL like "work:repo.git" or like "host.xz:/path/to/repo.git" will be rewritten in any context that takes a URL to be "git://git.host.xz/repo.git".
 
-       If you want to rewrite URLs for push only,
+       If you want to rewrite URLs for push only, you can create a configuration section of the form:
+
+                   [url "<actual url base>"]
+                           pushInsteadOf = <other url base>
+
+       For example, with this:
+
+                   [url "ssh://example.org/"]
+                           pushInsteadOf = git://example.org/
+
+       a URL like "git://example.org/path/to/repo.git" will be rewritten to "ssh://example.org/path/to/repo.git" for pushes, but pulls will still use the original URL.
+
+RREEMMOOTTEESS
+       The name of one of the following can be used instead of a URL as <<rreeppoossiittoorryy>> argument:
+
+       •   a remote in the Git configuration file: $$GGIITT__DDIIRR//ccoonnffiigg,
+
+       •   a file in the $$GGIITT__DDIIRR//rreemmootteess directory, or
+
+       •   a file in the $$GGIITT__DDIIRR//bbrraanncchheess directory.
+
+       All of these also allow you to omit the refspec from the command line because they each contain a refspec which git will use by default.
+
+   NNaammeedd rreemmoottee iinn ccoonnffiigguurraattiioonn ffiillee
+       You can choose to provide the name of a remote which you had previously configured using ggiitt--rreemmoottee(1), ggiitt--ccoonnffiigg(1) or even by a manual edit to the $$GGIITT__DDIIRR//ccoonnffiigg file. The URL of this remote will be
+       used to access the repository. The refspec of this remote will be used by default when you do not provide a refspec on the command line. The entry in the config file would appear like this:
+
+                   [remote "<name>"]
+                           url = <url>
+                           pushurl = <pushurl>
+                           push = <refspec>
+                           fetch = <refspec>
+
+       The <<ppuusshhuurrll>> is used for pushes only. It is optional and defaults to <<uurrll>>.
+
+   NNaammeedd ffiillee iinn $$GGIITT__DDIIRR//rreemmootteess
+       You can choose to provide the name of a file in $$GGIITT__DDIIRR//rreemmootteess. The URL in this file will be used to access the repository. The refspec in this file will be used as default when you do not provide a
+       refspec on the command line. This file should have the following format:
+
+                   URL: one of the above URL format
+                   Push: <refspec>
+                   Pull: <refspec>
+
+       PPuusshh:: lines are used by _g_i_t _p_u_s_h and PPuullll:: lines are used by _g_i_t _p_u_l_l and _g_i_t _f_e_t_c_h. Multiple PPuusshh:: and PPuullll:: lines may be specified for additional branch mappings.
+
+   NNaammeedd ffiillee iinn $$GGIITT__DDIIRR//bbrraanncchheess
+       You can choose to provide the name of a file in $$GGIITT__DDIIRR//bbrraanncchheess. The URL in this file will be used to access the repository. This file should have the following format:
+
+                   <url>#<head>
+
+       <<uurrll>> is required; ##<<hheeaadd>> is optional.
+
+       Depending on the operation, git will use one of the following refspecs, if you don’t provide one on the command line. <<bbrraanncchh>> is the name of this file in $$GGIITT__DDIIRR//bbrraanncchheess and <<hheeaadd>> defaults to mmaasstteerr.
+
+       git fetch uses:
+
+                   refs/heads/<head>:refs/heads/<branch>
+
+       git push uses:
+
+                   HEAD:refs/heads/<head>
+
+OOUUTTPPUUTT
+       The output of "git push" depends on the transport method used; this section describes the output when pushing over the Git protocol (either locally or via ssh).
+
+       The status of the push is output in tabular form, with each line representing the status of a single ref. Each line is of the form:
+
+            <flag> <summary> <from> -> <to> (<reason>)
+
+       If --porcelain is used, then each line of the output is of the form:
+
+            <flag> \t <from>:<to> \t <summary> (<reason>)
+
+       The status of up-to-date refs is shown only if --porcelain or --verbose option is used.
+
+       flag
+           A single character indicating the status of the ref:
+
+           (space)
+               for a successfully pushed fast-forward;
+
+           ++
+               for a successful forced update;
+
+           --
+               for a successfully deleted ref;
+
+           **
+               for a successfully pushed new ref;
+
+           !!
+               for a ref that was rejected or failed to push; and
+
+           ==
+               for a ref that was up to date and did not need pushing.
+
+       summary
+           For a successfully pushed ref, the summary shows the old and new values of the ref in a form suitable for using as an argument to ggiitt lloogg (this is <<oolldd>>....<<nneeww>> in most cases, and <<oolldd>>......<<nneeww>> for
+           forced non-fast-forward updates).
+
+           For a failed update, more details are given:
+
+           rejected
+               Git did not try to send the ref at all, typically because it is not a fast-forward and you did not force the update.
+
+           remote rejected
+               The remote end refused the update. Usually caused by a hook on the remote side, or because the remote repository has one of the following safety options in effect: rreecceeiivvee..ddeennyyCCuurrrreennttBBrraanncchh (for
+               pushes to the checked out branch), rreecceeiivvee..ddeennyyNNoonnFFaassttFFoorrwwaarrddss (for forced non-fast-forward updates), rreecceeiivvee..ddeennyyDDeelleetteess or rreecceeiivvee..ddeennyyDDeelleetteeCCuurrrreenntt. See ggiitt--ccoonnffiigg(1).
+
+           remote failure
+               The remote end did not report the successful update of the ref, perhaps because of a temporary error on the remote side, a break in the network connection, or other transient error.
+
+       from
+           The name of the local ref being pushed, minus its rreeffss//<<ttyyppee>>// prefix. In the case of deletion, the name of the local ref is omitted.
+
+       to
+           The name of the remote ref being updated, minus its rreeffss//<<ttyyppee>>// prefix.
+
+       reason
+           A human-readable explanation. In the case of successfully pushed refs, no explanation is needed. For a failed ref, the reason for failure is described.
+
+NNOOTTEE AABBOOUUTT FFAASSTT--FFOORRWWAARRDDSS
+       When an update changes a branch (or more in general, a ref) that used to point at commit A to point at another commit B, it is called a fast-forward update if and only if B is a descendant of A.
+
+       In a fast-forward update from A to B, the set of commits that the original commit A built on top of is a subset of the commits the new commit B builds on top of. Hence, it does not lose any history.
+
+       In contrast, a non-fast-forward update will lose history. For example, suppose you and somebody else started at the same commit X, and you built a history leading to commit B while the other person built a
+       history leading to commit A. The history looks like this:
+
+                 B
+                /
+            ---X---A
+
+       Further suppose that the other person already pushed changes leading to A back to the original repository from which you two obtained the original commit X.
+
+       The push done by the other person updated the branch that used to point at commit X to point at commit A. It is a fast-forward.
+
+       But if you try to push, you will attempt to update the branch (that now points at A) with commit B. This does _n_o_t fast-forward. If you did so, the changes introduced by commit A will be lost, because
+       everybody will now start building on top of B.
+
+       The command by default does not allow an update that is not a fast-forward to prevent such loss of history.
+
+       If you do not want to lose your work (history from X to B) or the work by the other person (history from X to A), you would need to first fetch the history from the repository, create a history that
+       contains changes done by both parties, and push the result back.
+
+       You can perform "git pull", resolve potential conflicts, and "git push" the result. A "git pull" will create a merge commit C between commits A and B.
+
+                 B---C
+                /   /
+            ---X---A
+
+       Updating A with the resulting merge commit will fast-forward and your push will be accepted.
+
+       Alternatively, you can rebase your change between X and B on top of A, with "git pull --rebase", and push the result back. The rebase will create a new commit D that builds the change between X and B on top
+       of A.
+
+                 B   D
+                /   /
+            ---X---A
+
+       Again, updating A with this commit will fast-forward and your push will be accepted.
+
+       There is another common situation where you may encounter non-fast-forward rejection when you try to push, and it is possible even when you are pushing into a repository nobody else pushes into. After you
+       push commit A yourself (in the first picture in this section), replace it with "git commit --amend" to produce commit B, and you try to push it out, because forgot that you have pushed A out already. In
+       such a case, and only if you are certain that nobody in the meantime fetched your earlier commit A (and started building on top of it), you can run "git push --force" to overwrite it. In other words, "git
+       push --force" is a method reserved for a case where you do mean to lose history.
+
+EEXXAAMMPPLLEESS
+       ggiitt ppuusshh
+           Works like ggiitt ppuusshh <<rreemmoottee>>, where <remote> is the current branch’s remote (or oorriiggiinn, if no remote is configured for the current branch).
+
+       ggiitt ppuusshh oorriiggiinn
+           Without additional configuration, pushes the current branch to the configured upstream (rreemmoottee..oorriiggiinn..mmeerrggee configuration variable) if it has the same name as the current branch, and errors out without
+           pushing otherwise.
+
+           The default behavior of this command when no <refspec> is given can be configured by setting the ppuusshh option of the remote, or the ppuusshh..ddeeffaauulltt configuration variable.
+
+           For example, to default to pushing only the current branch to oorriiggiinn use ggiitt ccoonnffiigg rreemmoottee..oorriiggiinn..ppuusshh HHEEAADD. Any valid <refspec> (like the ones in the examples below) can be configured as the default
+           for ggiitt ppuusshh oorriiggiinn.
+
+       ggiitt ppuusshh oorriiggiinn ::
+           Push "matching" branches to oorriiggiinn. See <refspec> in the OPTIONS section above for a description of "matching" branches.
+
+       ggiitt ppuusshh oorriiggiinn mmaasstteerr
+           Find a ref that matches mmaasstteerr in the source repository (most likely, it would find rreeffss//hheeaaddss//mmaasstteerr), and update the same ref (e.g.  rreeffss//hheeaaddss//mmaasstteerr) in oorriiggiinn repository with it. If mmaasstteerr did not
+           exist remotely, it would be created.
+
+       ggiitt ppuusshh oorriiggiinn HHEEAADD
+           A handy way to push the current branch to the same name on the remote.
+
+       ggiitt ppuusshh mmootthheerrsshhiipp mmaasstteerr::ssaatteelllliittee//mmaasstteerr ddeevv::ssaatteelllliittee//ddeevv
+           Use the source ref that matches mmaasstteerr (e.g.  rreeffss//hheeaaddss//mmaasstteerr) to update the ref that matches ssaatteelllliittee//mmaasstteerr (most probably rreeffss//rreemmootteess//ssaatteelllliittee//mmaasstteerr) in the mmootthheerrsshhiipp repository; do the same
+           for ddeevv and ssaatteelllliittee//ddeevv.
+
+           See the section describing <<rreeffssppeecc>>......  above for a discussion of the matching semantics.
+
+           This is to emulate ggiitt ffeettcchh run on the mmootthheerrsshhiipp using ggiitt ppuusshh that is run in the opposite direction in order to integrate the work done on ssaatteelllliittee, and is often necessary when you can only make
+           connection in one way (i.e. satellite can ssh into mothership but mothership cannot initiate connection to satellite because the latter is behind a firewall or does not run sshd).
+
+           After running this ggiitt ppuusshh on the ssaatteelllliittee machine, you would ssh into the mmootthheerrsshhiipp and run ggiitt mmeerrggee there to complete the emulation of ggiitt ppuullll that were run on mmootthheerrsshhiipp to pull changes made on
+           ssaatteelllliittee.
+
+       ggiitt ppuusshh oorriiggiinn HHEEAADD::mmaasstteerr
+           Push the current branch to the remote ref matching mmaasstteerr in the oorriiggiinn repository. This form is convenient to push the current branch without thinking about its local name.
+
+       ggiitt ppuusshh oorriiggiinn mmaasstteerr::rreeffss//hheeaaddss//eexxppeerriimmeennttaall
+           Create the branch eexxppeerriimmeennttaall in the oorriiggiinn repository by copying the current mmaasstteerr branch. This form is only needed to create a new branch or tag in the remote repository when the local name and the
+           remote name are different; otherwise, the ref name on its own will work.
+
+       ggiitt ppuusshh oorriiggiinn ::eexxppeerriimmeennttaall
+           Find a ref that matches eexxppeerriimmeennttaall in the oorriiggiinn repository (e.g.  rreeffss//hheeaaddss//eexxppeerriimmeennttaall), and delete it.
+
+       ggiitt ppuusshh oorriiggiinn ++ddeevv::mmaasstteerr
+           Update the origin repository’s master branch with the dev branch, allowing non-fast-forward updates.  TThhiiss ccaann lleeaavvee uunnrreeffeerreenncceedd ccoommmmiittss ddaanngglliinngg iinn tthhee oorriiggiinn rreeppoossiittoorryy..  Consider the following
+           situation, where a fast-forward is not possible:
+
+                           o---o---o---A---B  origin/master
+                                    \
+                                     X---Y---Z  dev
+
+           The above command would change the origin repository to
+
+                                     A---B  (unnamed branch)
+                                    /
+                           o---o---o---X---Y---Z  master
+
+           Commits A and B would no longer belong to a branch with a symbolic name, and so would be unreachable. As such, these commits would be removed by a ggiitt ggcc command on the origin repository.
+
+SSEECCUURRIITTYY
+       The fetch and push protocols are not designed to prevent one side from stealing data from the other repository that was not intended to be shared. If you have private data that you need to protect from a
+       malicious peer, your best option is to store it in another repository. This applies to both clients and servers. In particular, namespaces on a server are not effective for read access control; you should
+       only grant read access to a namespace to clients that you would trust with read access to the entire repository.
+
+       The known attack vectors are as follows:
+
+        1. The victim sends "have" lines advertising the IDs of objects it has that are not explicitly intended to be shared but can be used to optimize the transfer if the peer also has them. The attacker chooses
+           an object ID X to steal and sends a ref to X, but isn’t required to send the content of X because the victim already has it. Now the victim believes that the attacker has X, and it sends the content of
+           X back to the attacker later. (This attack is most straightforward for a client to perform on a server, by creating a ref to X in the namespace the client has access to and then fetching it. The most
+           likely way for a server to perform it on a client is to "merge" X into a public branch and hope that the user does additional work on this branch and pushes it back to the server without noticing the
+           merge.)
+
+        2. As in #1, the attacker chooses an object ID X to steal. The victim sends an object Y that the attacker already has, and the attacker falsely claims to have X and not Y, so the victim sends Y as a delta
+           against X. The delta reveals regions of X that are similar to Y to the attacker.
+
+GGIITT
+       Part of the ggiitt(1) suite
+
+Git 2.25.1                                                                                            06/13/2024                                                                                          GIT-PUSH(1)
